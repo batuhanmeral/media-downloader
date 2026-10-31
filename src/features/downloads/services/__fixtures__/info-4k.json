@@ -1,0 +1,23 @@
+{
+  "id": "LXb3EKWsInQ",
+  "title": "COSTA RICA IN 4K 60fps HDR (ULTRA HD)",
+  "channel": "Jacob + Katie Schwarz",
+  "uploader": "Jacob + Katie Schwarz",
+  "duration": 314,
+  "thumbnail": "https://i.ytimg.com/vi_webp/LXb3EKWsInQ/maxresdefault.webp",
+  "formats": [
+    { "format_id": "sb0", "ext": "mhtml", "vcodec": "none", "acodec": "none", "height": 180, "filesize": null, "filesize_approx": null },
+    { "format_id": "233", "ext": "mp4", "vcodec": "none", "acodec": null, "height": null, "filesize": null, "filesize_approx": null },
+    { "format_id": "139", "ext": "m4a", "vcodec": "none", "acodec": "mp4a.40.5", "height": null, "filesize": 1915378, "filesize_approx": 1915377 },
+    { "format_id": "140", "ext": "m4a", "vcodec": "none", "acodec": "mp4a.40.2", "height": null, "filesize": 5079985, "filesize_approx": 5079971 },
+    { "format_id": "251-drc", "ext": "webm", "vcodec": "none", "acodec": "opus", "height": null, "filesize": 5205204, "filesize_approx": 5205174 },
+    { "format_id": "160", "ext": "mp4", "vcodec": "avc1.4D400C", "acodec": "none", "height": 144, "filesize": 2638953, "filesize_approx": 2638929 },
+    { "format_id": "134", "ext": "mp4", "vcodec": "avc1.4D401E", "acodec": "none", "height": 360, "filesize": 12569154, "filesize_approx": 12569124 },
+    { "format_id": "605", "ext": "mp4", "vcodec": "vp09.00.21.08", "acodec": "none", "height": 360, "filesize": null, "filesize_approx": null },
+    { "format_id": "312", "ext": "mp4", "vcodec": "avc1.64002A", "acodec": "none", "height": 1080, "filesize": null, "filesize_approx": null },
+    { "format_id": "299", "ext": "mp4", "vcodec": "avc1.64002A", "acodec": "none", "height": 1080, "filesize": 165950262, "filesize_approx": 165950240 },
+    { "format_id": "303", "ext": "webm", "vcodec": "vp9", "acodec": "none", "height": 1080, "filesize": 120876127, "filesize_approx": 120876103 },
+    { "format_id": "623", "ext": "mp4", "vcodec": "vp09.00.50.08", "acodec": "none", "height": 1440, "filesize": null, "filesize_approx": null },
+    { "format_id": "315", "ext": "webm", "vcodec": "vp9", "acodec": "none", "height": 2160, "filesize": 942927341, "filesize_approx": 942927310 }
+  ]
+}

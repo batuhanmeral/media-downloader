@@ -1,0 +1,29 @@
+# project docs and brainstorming artifacts
+.docs/
+.superpowers/
+
+# env
+.env*
+!.env.example
+
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# tests
+coverage/
+test-results/
+playwright-report/
+
+# agent files written by next dev
+AGENTS.md
+
+# misc
+.DS_Store
+*.log
