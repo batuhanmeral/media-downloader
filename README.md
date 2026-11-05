@@ -1,6 +1,18 @@
 # Fetchy
 
-A local-only web UI for downloading video (MP4/MKV) and audio (MP3/M4A) from any site [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports. Paste a link, pick a format and quality, and the file is saved to a folder on your machine.
+A local web UI for [yt-dlp](https://github.com/yt-dlp/yt-dlp). Paste a link, choose video or audio and a quality, and Fetchy saves the file to a folder on your machine. It works with every site yt-dlp supports, runs only on `localhost` and needs no account or database.
+
+## Features
+
+- **Preview first:** title, channel, duration, thumbnail and every available resolution with its estimated size
+- **Video:** MP4 or MKV, from 144p up to 4320p
+- **Audio:** MP3 (320/192/128 kbps) or M4A
+- **Playlists and channels:** up to 300 videos in one format, downloaded one by one into a folder named after the playlist; entries that fail are skipped
+- **Concurrent downloads** with live progress, speed, ETA and cancel; the list survives a page refresh
+- **Embedded metadata and cover art**
+- Turkish and English UI; light and dark theme follow your system
+
+Live streams can't be downloaded while they are live; past broadcasts work. Content behind a login isn't supported, because Fetchy doesn't pass cookies to yt-dlp.
 
 ## Tech stack
 
@@ -13,30 +25,60 @@ A local-only web UI for downloading video (MP4/MKV) and audio (MP3/M4A) from any
 | Testing   | Vitest, Testing Library, Playwright           |
 | Tooling   | pnpm, ESLint, Prettier                        |
 
-## Features
+## Requirements
 
-- Works with every site yt-dlp supports
-- Shows title, channel, duration, thumbnail and available resolutions before downloading
-- Video: MP4 or MKV, up to 4320p
-- Audio: MP3 (320/192/128 kbps) or M4A
-- Playlists and channels (up to 300 videos): one format for all, downloaded one by one into a folder named after the playlist
-- Embedded metadata and cover art
-- Concurrent downloads with live progress and cancel
-- Turkish and English UI, light and dark theme
+- Node.js 20.9 or newer and [pnpm](https://pnpm.io)
+- These tools on your `PATH`:
+  - [yt-dlp](https://github.com/yt-dlp/yt-dlp#installation) does the downloading
+  - [ffmpeg](https://ffmpeg.org) merges streams, converts formats and embeds metadata
+  - [Deno](https://deno.com) is the JavaScript runtime yt-dlp needs for YouTube
+
+Developed and tested on Linux.
 
 ## Getting started
 
-Requires Node.js, pnpm, and `yt-dlp`, `ffmpeg` and `deno` on your `PATH`.
-
 ```sh
+git clone https://github.com/batuhanmeral/media-downloader.git
+cd media-downloader
 pnpm install
-cp .env.example .env.local   # set DOWNLOAD_DIR to an existing, writable folder
-pnpm dev                     # http://127.0.0.1:3000
+cp .env.example .env.local
 ```
 
-For everyday use, run `pnpm build && pnpm start` instead.
+In `.env.local`, set `DOWNLOAD_DIR` to the absolute path of an existing, writable folder:
 
-Fetchy has no login and binds to `127.0.0.1`; don't expose it to a network.
+```sh
+DOWNLOAD_DIR=/home/you/Videos/Fetchy
+```
+
+Build and start the app, then open http://localhost:3000:
+
+```sh
+pnpm build
+pnpm start
+```
+
+The server checks `DOWNLOAD_DIR` at startup and stops with a clear error if the folder is missing or not writable. Files are named like `Title [id] 1080p.mp4` or `Title [id] 320k.mp3`; playlists go into `DOWNLOAD_DIR/<playlist title>/`.
+
+Fetchy has no login and listens only on `localhost`; don't expose it to a network.
+
+## Development
+
+| Command                                              | Purpose                                           |
+| ---------------------------------------------------- | ------------------------------------------------- |
+| `pnpm dev`                                           | Dev server on localhost:3000                      |
+| `pnpm test`                                          | Unit and component tests (Vitest)                 |
+| `pnpm test:e2e`                                      | Playwright smoke test, downloads a real 19 s clip |
+| `pnpm lint` / `pnpm typecheck` / `pnpm format:check` | ESLint, TypeScript, Prettier                      |
+
+Feature code lives in `src/features/downloads/` (actions, yt-dlp services, components); translations are in `src/i18n/messages/`.
+
+## Disclaimer
+
+Download only content you have the right to download. You are responsible for respecting copyright and each site's terms of service.
+
+## Screenshot
+
+![Fetchy analyzing a video and running two downloads at once](docs/screenshot.png)
 
 ## License
 
